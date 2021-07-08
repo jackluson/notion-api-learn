@@ -1,13 +1,13 @@
-# Node Typescript Template
+# Notion Api Learn
 
-> a project template for Node Typescript development
+> a demo project for pratice notion api
 
-### Features
+### API
 
-- [ESlint](https://github.com/eslint/eslint)、[prettier](https://github.com/prettier/prettier)
-- [ts-node-dev](https://github.com/wclr/ts-node-dev)
-- [commitlint](https://github.com/conventional-changelog/commitlint)、[lint-staged](https://github.com/okonet/lint-staged)、[husky](https://github.com/typicode/husky)
+- database
+- page
+- block
 
 ### About Docs
 
-- [tsconfig docs help](https://www.typescriptlang.org/tsconfig)
+- [help](./docs/help.md)
