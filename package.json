@@ -1,20 +1,20 @@
 {
-  "name": "node-typescript-template",
+  "name": "notion-api-learn",
   "version": "1.0.0",
   "author": "jackluson <18219112108@163.com>",
-  "description": "a project template for Node Typescript development",
+  "description": "notion api learn and pratice",
   "keywords": [
-    "node",
-    "typescript",
-    "template"
+    "notion",
+    "api",
+    "learn"
   ],
-  "homepage": "https://github.com/jackluson/node-typescript-template",
+  "homepage": "https://github.com/jackluson/notion-api-learn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jackluson/node-typescript-template.git"
+    "url": "git+https://github.com/jackluson/notion-api-learn.git"
   },
   "bugs": {
-    "url": "https://github.com/jackluson/node-typescript-template/issues"
+    "url": "https://github.com/jackluson/notion-api-learn/issues"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -34,12 +34,13 @@
     "@notionhq/client": "^0.1.8",
     "@types/module-alias": "^2.0.0",
     "dotenv": "^10.0.0",
+    "https-proxy-agent": "^5.0.0",
     "module-alias": "^2.2.2",
     "tslib": "^2.1.0",
     "typescript": "^4.2.3"
   },
   "_moduleAliases": {
-    "@utils": "dist/utils"
+    "@": "dist"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",

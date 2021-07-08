@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "module": "commonjs",
     "strict": true,
     "declaration": true,
@@ -15,7 +15,8 @@
     "baseUrl": ".",
     "rootDir": "src",
     "paths": {
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*", "types/**/*"],
