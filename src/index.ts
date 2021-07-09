@@ -16,6 +16,9 @@ import { Client } from '@notionhq/client';
 dotenv.config();
 import { retrieveDatabase, queryTableDatabase, queryListDatabase } from './modules/database';
 import { retrievePage, createDataBasePage, createPage, udpatePageProperties } from './modules/page';
+import { appendBlock, retrieveBlocks } from './modules/block';
+import { getAllUsers, getUserById } from './modules/user';
+import { searchHelp } from './modules/search';
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 const database_id = process.env.NOTION_DATABASE_ID;
@@ -95,6 +98,8 @@ const listDataBaseID = '5885924186fd43c2888636e5c90cceb0';
 
 //queryListDatabase('dabbfc89-e5c4-47ce-86b4-032b0db5403a');
 
+/* page 相关接口 */
+
 const pageID = 'df88140a3014405da41c1d88ab29c39d'; // database 页面
 //retrievePage(pageID);
 
@@ -104,4 +109,30 @@ const pageID = 'df88140a3014405da41c1d88ab29c39d'; // database 页面
 
 const updatePageId = 'bd2702e24b924d09a9e5450908725e6e'; // 普通页面
 
-udpatePageProperties(pageID);
+//www.notion.so/learn-notion-api/jisdfitetitle-df88140a3014405da41c1d88ab29c39d#057d39b6abed45a1a5bf3e3a3d0215c9
+//udpatePageProperties(pageID);
+
+//https://www.notion.so/learn-notion-api/jisdfitetitle-df88140a3014405da41c1d88ab29c39d#6cc433f739484b01b4932f12453dedc3
+
+/* block 相关 */
+
+const blockId = 'df88140a3014405da41c1d88ab29c39d';
+//retrieveBlocks(blockId);
+
+const appendBlockId = '6cc433f739484b01b4932f12453dedc3';
+
+//appendBlock(appendBlockId);
+
+/* user 相关api */
+
+//getAllUsers();
+
+const userId = 'f1f86ee2-639b-4f8d-8d4b-ed969c63e620';
+
+//getUserById(userId);
+
+/* search 相关 */
+
+const query = '你好';
+
+searchHelp(query);

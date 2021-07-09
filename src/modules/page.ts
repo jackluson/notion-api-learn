@@ -121,6 +121,7 @@ export const createPage = async (parentId: string) => {
   console.log('response', response);
 };
 
+// https://developers.notion.com/reference/patch-page
 export const udpatePageProperties = async (pageId: string) => {
   console.log('🚀 ~ file: page.ts ~ line 125 ~ udpatePageProperties ~ pageId', pageId);
   const response = await notionClient.pages.update({
@@ -137,11 +138,36 @@ export const udpatePageProperties = async (pageId: string) => {
       //  ],
       //  type: 'title',
       //},
-      data: {
-        date: {
-          start: '2020-12-08T12:00:00Z',
-        },
-        type: 'date',
+      //data: {
+      //  date: {
+      //    start: '2020-12-08T12:00:00Z',
+      //  },
+      //  type: 'date',
+      //},
+      text: {
+        rich_text: [
+          {
+            type: 'text',
+            text: {
+              content: 'Some more text with ',
+            },
+          },
+          {
+            type: 'text',
+            text: {
+              content: 'some',
+            },
+            annotations: {
+              italic: true,
+              code: true,
+              color: 'blue',
+              bold: true,
+              strikethrough: true,
+              underline: true,
+            },
+          },
+        ],
+        type: 'rich_text',
       },
     },
   });
