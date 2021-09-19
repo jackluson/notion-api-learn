@@ -59,3 +59,56 @@ export const queryListDatabase = async (databaseId?: string) => {
   });
   console.log(response.results);
 };
+
+// https://developers.notion.com/reference/create-a-database
+export const createDataBase = async (parentPageId: string, title?: any, properties?: any) => {
+  const response = await notionClient.databases.create({
+    parent: {
+      page_id: parentPageId,
+    },
+    icon: {
+      type: 'emoji',
+      emoji: '🎉',
+    },
+    cover: {
+      type: 'external',
+      external: {
+        url: 'https://images.unsplash.com/photo-1631899081999-7aa0d7bd57a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3200&q=80',
+      },
+    },
+    title: [
+      {
+        type: 'text',
+        text: {
+          content: 'Grocery List',
+        },
+      },
+    ],
+    properties: {
+      Name: {
+        title: {},
+      },
+      Description: {
+        rich_text: {},
+      },
+    },
+  });
+  console.log(response);
+};
+
+// https://developers.notion.com/reference/update-a-database
+
+export const updateDataBase = async (dataBaseId: string) => {
+  const response = await notionClient.databases.update({
+    database_id: dataBaseId,
+    title: [
+      {
+        type: 'text',
+        text: {
+          content: 'update DatabaseTitle',
+        },
+      },
+    ],
+  });
+  console.log('response', response);
+};
