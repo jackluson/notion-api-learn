@@ -11,11 +11,43 @@
 import notionClient from '@/client/index';
 
 export const retrieveBlocks = async (blockId: string) => {
+  const block = await notionClient.blocks.retrieve({
+    block_id: blockId,
+  });
+  const { type } = block;
+  if (type !== 'unsupported') {
+    type BlockKey = keyof typeof block;
+    console.log('🚀 ~ file: block.ts ~ line 21 ~ retrieveBlocks ~ block', block);
+    console.log('🚀 ~ file: block.ts ~ line 21 ~ retrieveBlocks ~ block', (block[type as BlockKey] as any).text);
+  } else {
+    console.log('block', block);
+  }
+  console.log(block);
+};
+
+export const updateBlocks = async (blockId: string) => {
+  const res = await notionClient.blocks.update({
+    block_id: blockId,
+    paragraph: {
+      text: [
+        {
+          type: 'text',
+          text: {
+            content: 'Lacinato kale',
+          },
+        },
+      ],
+    },
+  });
+};
+
+export const retrieveBlockChildren = async (blockId: string) => {
   const response = await notionClient.blocks.children.list({
     block_id: blockId,
     page_size: 50,
   });
   const { object, results } = response;
+  console.log('response', response);
   if (object === 'list') {
     for (const block of results) {
       const { type } = block;
@@ -83,4 +115,19 @@ export const appendBlock = async (blockId: string) => {
     ] as any,
   });
   console.log(response);
+};
+
+export const deleteBlock = async (blockId: string) => {
+  const response = await notionClient.blocks.delete({
+    block_id: blockId,
+  });
+  console.log(response);
+};
+
+export const restoreBlock = async (blockId: string) => {
+  const res = await notionClient.blocks.update({
+    block_id: blockId,
+    archived: false,
+  });
+  console.log('res', res);
 };

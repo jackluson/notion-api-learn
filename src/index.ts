@@ -20,7 +20,14 @@ import {
   updateDataBase,
 } from './modules/database';
 import { retrievePage, createDataBasePage, createPage, udpatePageProperties } from './modules/page';
-import { appendBlock, retrieveBlocks } from './modules/block';
+import {
+  appendBlock,
+  retrieveBlocks,
+  updateBlocks,
+  retrieveBlockChildren,
+  deleteBlock,
+  restoreBlock,
+} from './modules/block';
 import { getAllUsers, getUserById } from './modules/user';
 import { searchHelp } from './modules/search';
 
@@ -33,7 +40,7 @@ const listDataBaseID = '5885924186fd43c2888636e5c90cceb0';
 //queryTableDatabase('dabbfc89e5c447ce86b4032b0db5403a');
 //queryListDatabase('dabbfc89-e5c4-47ce-86b4-032b0db5403a');
 // createDataBase('489015ee563242c6a04a868390773ce3');
-updateDataBase('83cc8284b6cc46019a9a5c43d66b82b1');
+// updateDataBase('83cc8284b6cc46019a9a5c43d66b82b1');
 /* 2. page 相关接口 */
 const pageID = 'df88140a3014405da41c1d88ab29c39d'; // database 页面
 //retrievePage(pageID);
@@ -44,12 +51,17 @@ const updatePageId = 'bd2702e24b924d09a9e5450908725e6e'; // 普通页面
 
 /* 3. block 相关 */
 
-const blockId = 'df88140a3014405da41c1d88ab29c39d';
-//retrieveBlocks(blockId);
+const blockId = 'fb604fb4fd6e4f2e9e1886603027da3c';
+// retrieveBlocks(blockId);
+// updateBlocks(blockId);
 
 const appendBlockId = '6cc433f739484b01b4932f12453dedc3';
 
 //appendBlock(appendBlockId);
+const testDeleteBlockId = 'ec9d02f1819a4ee6858ded3345080522';
+// deleteBlock(testDeleteBlockId);
+
+restoreBlock(testDeleteBlockId);
 
 /* 4. user 相关api */
 //getAllUsers();
